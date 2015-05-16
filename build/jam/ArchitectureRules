@@ -274,6 +274,11 @@ rule KernelArchitectureSetup architecture
 					HAIKU_BOOT_PLATFORM ?= u-boot ;
 					HAIKU_BOOT_FLOPPY_IMAGE_SIZE = 1440 ;
 				}
+				case chromebook :
+				{
+					HAIKU_BOOT_PLATFORM ?= u-boot ;
+					HAIKU_BOOT_FLOPPY_IMAGE_SIZE = 1440 ;
+				}
 				case * :
 				{
 					Exit "Set HAIKU_BOOT_BOARD for your target ARM device!" ;

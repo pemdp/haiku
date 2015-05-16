@@ -14,6 +14,7 @@
 #include <arch/debug_console.h>
 #include <arch/generic/debug_uart_8250.h>
 #include <arch/arm/arch_uart_pl011.h>
+#include <arch/arm/arch_uart_exynos.h>
 #include <boot/kernel_args.h>
 #include <kernel.h>
 #include <vm/vm.h>
@@ -97,6 +98,9 @@ arch_debug_console_init(kernel_args *args)
 {
 	#if defined(BOARD_UART_PL011)
 	gArchDebugUART = arch_get_uart_pl011(BOARD_UART_DEBUG, BOARD_UART_CLOCK);
+	#elif BOARD_UART_EXYNOS
+	gArchDebugUART = arch_get_uart_exynos(BOARD_UART_DEBUG, BOARD_UART_CLOCK);
+	#elif BOARD_UART_EXYNOS
 	#else
 	// More Generic 8250
 	gArchDebugUART = arch_get_uart_8250(BOARD_UART_DEBUG, BOARD_UART_CLOCK);

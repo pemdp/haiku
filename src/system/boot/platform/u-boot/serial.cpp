@@ -17,6 +17,7 @@
 
 #if defined(__ARM__)
 #include <arch/arm/arch_uart_pl011.h>
+#include <arch/arm/arch_uart_exynos.h>
 #endif
 
 #include <board_config.h>
@@ -129,6 +130,8 @@ serial_init(const void *fdt)
 	if (gUART == NULL) {
 		#ifdef BOARD_UART_PL011
 		gUART = arch_get_uart_pl011(BOARD_UART_DEBUG, BOARD_UART_CLOCK);
+		#elif BOARD_UART_EXYNOS
+		gUART = arch_get_uart_exynos(BOARD_UART_DEBUG, BOARD_UART_CLOCK);
 		#else
 		gUART = arch_get_uart_8250(BOARD_UART_DEBUG, BOARD_UART_CLOCK);
 		#endif

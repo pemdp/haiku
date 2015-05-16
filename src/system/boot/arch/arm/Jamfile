@@ -36,7 +36,6 @@ BootMergeObject boot_arch_$(TARGET_KERNEL_ARCH).o :
 	arch_uart_pl011.cpp
 	arch_uart_exynos.cpp
 	arch_elf.cpp
-	arch_elf.cpp
 	arch_framebuffer_920.cpp
 	arch_framebuffer_bcm2835.cpp
 	arch_framebuffer_pxa.cpp

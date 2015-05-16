@@ -98,9 +98,8 @@ arch_debug_console_init(kernel_args *args)
 {
 	#if defined(BOARD_UART_PL011)
 	gArchDebugUART = arch_get_uart_pl011(BOARD_UART_DEBUG, BOARD_UART_CLOCK);
-	#elif BOARD_UART_EXYNOS
+	#elif defined (BOARD_UART_EXYNOS)
 	gArchDebugUART = arch_get_uart_exynos(BOARD_UART_DEBUG, BOARD_UART_CLOCK);
-	#elif BOARD_UART_EXYNOS
 	#else
 	// More Generic 8250
 	gArchDebugUART = arch_get_uart_8250(BOARD_UART_DEBUG, BOARD_UART_CLOCK);
